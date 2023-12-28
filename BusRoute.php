@@ -12,7 +12,7 @@
         crossorigin="anonymous">
        
         <!-- CSS link -->
-        <link rel="stylesheet" href="/infomove/Css/Style.css">
+        <link rel="stylesheet" href="css/styles.css">
         
         <!-- google fonts link -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
