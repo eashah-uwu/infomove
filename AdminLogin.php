@@ -1,5 +1,7 @@
 
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,10 +68,22 @@
      <div class="row">
        <div class="col-md-3"></div>
        <div class="col-md-6"> 
+
+       <?php
+              if(isset($_SESSION['status']))
+              {
+                ?>
+                <div class = "alert alert-success">
+                  <h5><?= $_SESSION['status'];?></h5>
+              </div>
+              <?php
+              unset($_SESSION['status']);
+              }
+            ?>
             <div class="page-header">
                 <h1 style="text-align: center;">Login</h1>      
             </div> 
-            <form action="" method="post"> 
+            <form action="adminlogincode.php" method="post"> 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                   <!-- Update input field name from 'username' to 'email' -->

@@ -85,7 +85,7 @@ session_start();
        <div class="page-header">
                 <h1 style="text-align: center;">Login</h1>      
             </div> 
-            <form action="" method="post"> 
+            <form action="logincode.php" method="post"> 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                   <!-- Update input field name from 'username' to 'email' -->

@@ -44,6 +44,7 @@ if(isset($_POST['submit']))
     $email = $_POST['email'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $hash = password_hash($password,PASSWORD_DEFAULT);
     $verify_token = md5(rand());
 
     
@@ -60,7 +61,7 @@ if(isset($_POST['submit']))
          } else {
              // Proceed with inserting the new user data into the database
              $query = "INSERT INTO users (username,email,password,name,verify_token) 
-                       VALUES ('$username','$email','$password','$name','$verify_token')";
+                       VALUES ('$username','$email','$hash','$name','$verify_token')";
              $query_run = mysqli_query($con, $query);
  
              if ($query_run) {
