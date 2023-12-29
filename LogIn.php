@@ -1,5 +1,7 @@
 
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,19 +68,34 @@
      <div class="row">
        <div class="col-md-3"></div>
         <div class="col-md-6"> 
+
+
+            <?php
+              if(isset($_SESSION['status']))
+              {
+                ?>
+                <div class = "alert alert-success">
+                  <h5><?= $_SESSION['status'];?></h5>
+              </div>
+              <?php
+              unset($_SESSION['status']);
+              }
+            ?>
        
-            <div class="page-header">
+       <div class="page-header">
                 <h1 style="text-align: center;">Login</h1>      
-          </div> 
-            <form action="" method="post"> 
+            </div> 
+            <form action="logincode.php" method="post"> 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input id="username" type="text" class="form-control" name="username" placeholder="Username">
+                  <!-- Update input field name from 'username' to 'email' -->
+                  <input id="email" type="text" class="form-control" name="email" placeholder="Email">
                 </div>
                 <br>
                 
                 <div class="input-group">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                  <!-- Ensure the password input field name remains 'password' -->
                   <input id="password" type="password" class="form-control" name="password" placeholder="Password">
                 </div>
                 <br> 
@@ -87,7 +104,6 @@
                   <button type="submit" name="submit" class="btn" style="background-color: #38419D; color: #ffffff;">Log in</button>
                   
                 </div>
-
               </form>  
               <br> 
               <div class="input-group d-flex justify-content-center">
@@ -95,13 +111,10 @@
                   <p class="p-2"> not a user? sign up <p>
                  
               </div>
-              <button type="submit" name="submit" class="btn d-flex justify-content-center" style="background-color: #38419D; color: #ffffff;">Sign Up</button>
         </div> 
         <div class="col-md-3"></div>
          
      </div>
-         
-   
     </div> 
     
 

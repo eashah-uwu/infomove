@@ -68,13 +68,15 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="Map.php">Map</a>
                             </li>
-                        </ul>
-                        <ul class="navbar-nav ms-auto">
-      
-                        <li class="nav-item">   
-             <a class="nav-link" href="../index.php">Log Out</a>
-                     </li>
-      </ul>
+                            
+                            </ul>
+                            <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../logout.php">Logout</a>
+                            </li>
+                            </ul>
+                            
+                     
                     </div>
                 </div>
             </nav>
