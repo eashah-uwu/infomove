@@ -91,7 +91,7 @@
                         <br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="lastname" type="text" class="form-control" name="lastname" placeholder="Lastname">
+                            <input id="lastname" type="text" class="form-control" name="lastname" placeholder="Last Name">
                         </div>
                         <br>
                         <div class="input-group">

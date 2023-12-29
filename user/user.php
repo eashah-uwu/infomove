@@ -51,13 +51,13 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                                <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="infomove/BusRoute.php">Bus Route</a>
+                                <a class="nav-link" href="../BusRoute.php">Bus Route</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="infomove/BusSchedule.php">Bus schedule</a>
+                                <a class="nav-link" href="../BusSchedule.php">Bus schedule</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="Enquiry.php">Enquiry</a>
@@ -69,7 +69,12 @@
                                 <a class="nav-link" href="Map.php">Map</a>
                             </li>
                         </ul>
-                     
+                        <ul class="navbar-nav ms-auto">
+      
+                        <li class="nav-item">   
+             <a class="nav-link" href="../index.php">Log Out</a>
+                     </li>
+      </ul>
                     </div>
                 </div>
             </nav>

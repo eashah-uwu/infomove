@@ -84,7 +84,7 @@
                 <br> 
                 
                 <div class="input-group d-flex justify-content-center">
-                  <button type="submit" name="submit" class="btn btn-success">Log in</button>
+                  <button type="submit" name="submit" class="btn" style="background-color: #38419D; color: #ffffff;">Log in</button>
                   
                 </div>
 
@@ -92,8 +92,10 @@
               <br> 
               <div class="input-group d-flex justify-content-center">
                   <a href="AdminLogin.php">Admin Login</a>
+                  <p class="p-2"> not a user? sign up <p>
+                 
               </div>
-              
+              <button type="submit" name="submit" class="btn d-flex justify-content-center" style="background-color: #38419D; color: #ffffff;">Sign Up</button>
         </div> 
         <div class="col-md-3"></div>
          
