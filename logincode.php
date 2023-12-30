@@ -16,7 +16,8 @@ if (isset($_POST['submit'])) {
                 $hash = $row['password']; // Retrieve hashed password from the database
                 if (password_verify($password, $hash)) {
                     if ($row['verify_status'] == "1") {
-                        header("Location: user/user.php");
+                        $_SESSION['username']=$row['username'];
+                        header("Location: index.php");
                         exit(0);
                     } else {
                         $_SESSION['status'] = "Please verify your email address to login.";
