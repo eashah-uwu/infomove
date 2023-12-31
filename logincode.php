@@ -17,6 +17,7 @@ if (isset($_POST['submit'])) {
                 if (password_verify($password, $hash)) {
                     if ($row['verify_status'] == "1") {
                         $_SESSION['username']=$row['username'];
+                        $_SESSION['user_id']=$row['user_id'];
                         header("Location: index.php");
                         exit(0);
                     } else {

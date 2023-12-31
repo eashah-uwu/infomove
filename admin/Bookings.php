@@ -1,3 +1,9 @@
+<?php 
+   session_start();
+   include('C:/xampp/htdocs/infomove/includes/connect.php');
+?>
+
+
 <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -6,20 +12,7 @@
         <title>InfoMove</title>
         <?php require ('../links.php') ?>
         
-    <style>
-        body {
-            
-            background-color: #f8f9fa;
-            background-image: url('Images/bg.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            
-            
-        }
-
-       
-    </style>
+  
     </head>
 
     <body style="padding-top: 150px;">

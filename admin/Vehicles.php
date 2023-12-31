@@ -1,3 +1,9 @@
+<?php 
+   session_start();
+   include('C:/xampp/htdocs/infomove/includes/connect.php');
+?>
+
+
 <!DOCTYPE html>
     <html lang="en">
     <head>
