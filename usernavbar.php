@@ -8,7 +8,7 @@
 
 <div class="container">
     
-<nav class="navbar navbar-expand-lg  bg-custom-brown  fixed-top" style="background-color: #F6D6D6; padding: 0.01em;">
+<nav class="navbar navbar-expand-lg  ">
   <div class="container-fluid">
   <a class="navbar-brand" href="index.php">
       <img src="Images/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
@@ -49,7 +49,7 @@
  
      
   <?php } else { ?> 
-   <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #F6D6D6; padding: 0.01em; ">
+   <nav class="navbar navbar-expand-lg fixed-top" >
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">
                         <img src="Images/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">

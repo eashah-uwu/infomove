@@ -18,7 +18,7 @@
 
 </head>
 <body>
-
+<div class='test'>
   <!--navbar background-color: #d2b48c;-->
   <header>
   <?php require ('usernavbar.php') ?>
@@ -26,42 +26,8 @@
 
 
 
- <main>
-<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-  <div class="carousel-inner">
-  
-    <div class="carousel-item">
-      <img src="Images/pexels-mihis-alex-21014.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>InfoMove</h5>
-        <p>The one stop for all your travelling needs</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="Images/pexels-nubia-navarro-(nubikini)-385998.jpg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-    <div class="carousel-item active">
-      <img src="Images\pexels-photo-3064079.jpeg" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
-      </div>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
+ <main>
 <div class='py-4' style="font: size 20px; text-align: center; color: black;">
            
            <h1  >InfoMove</h1>
@@ -100,6 +66,6 @@
     Contact us at: info@infomove.com
   </address>
 </footer>
-
+           </div>
 </body>
 </html>

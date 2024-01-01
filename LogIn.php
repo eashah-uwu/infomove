@@ -50,6 +50,7 @@ session_start();
         <li class="nav-item">
           <a class="nav-link" href="SignUp.php">Sign Up</a>
 </li>
+        
         <li class="nav-item">   
                <a class="nav-link" href="LogIn.php">Log In</a>
         </li>
@@ -104,9 +105,9 @@ session_start();
               <br> 
               <div class="input-group d-flex justify-content-center">
                   <a href="AdminLogin.php">Admin Login</a>
-                  <p class="p-2"> not a user? sign up <p>
-                 
+                  <a class="p-2" href="AdminLogin.php">Admin Login</a>
               </div>
+              <div class="link forget-pass text-left"><a href="forgot-password.php">Forgot password?</a></div>
         </div> 
         <div class="col-md-3"></div>
          
