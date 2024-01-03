@@ -10,12 +10,17 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
+                                <a class="nav-link active" aria-current="page" href="admin.php">Home</a>
                             </li>
                             
                             <li class="nav-item">
                                 <a class="nav-link" href="BusSceduling.php">Add Bus schedule</a>
                             </li>
+                             
+                            <li class="nav-item">
+                                <a class="nav-link" href="Route.php">Add Bus Route</a>
+                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="Vehicles.php">Vehicle Log</a>
                             </li>

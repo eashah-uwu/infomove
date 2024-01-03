@@ -5,23 +5,19 @@
 /*insert*/
 if (isset($_POST['save_data'])) {
     
-    $driver_name= $_POST['driver_name'];
-    $license_number = $_POST['license_number'];
-    $driver_phone = $_POST['driver_phone'];
-    $date_of_joining = $_POST['date_of_joining'];
-    $driver_email = $_POST['driver_email'];
-    $driver_availablity = $_POST['driver_availablity'];
+    $route_name = $_POST['route_name'];
+    $source = $_POST['source'];
+    $destination = $_POST['destination'];
 
-    $query = "INSERT INTO `driverdetails` (`driver_name`, `license_number`, `driver_phone`, `driver_email`, `driver_availablity`) 
-          VALUES ('$driver_name', '$license_number', '$driver_phone', '$driver_email', '$driver_availablity')";
+    $query = "INSERT INTO routedetails (route_name, source, destination) VALUES ('$route_name', '$source', '$destination')";
     $query_run = mysqli_query($con, $query);
 
     if ($query_run) {
-        $_SESSION['success'] = "Driver Added";
-        header('Location: Driver.php');
+        $_SESSION['success'] = "Route Added";
+        header('Location: Route.php');
     } else {
-        $_SESSION['status'] = "Driver Not Added";
-        header('Location: Driver.php');
+        $_SESSION['status'] = "Route Not Added";
+        header('Location: Route.php');
     }
 }   
 
@@ -29,19 +25,16 @@ if (isset($_POST['save_data'])) {
 
 /*View*/
 if (isset($_POST['click_view_btn'])) {
-    $driver_id = $_POST['driver_id'];
-    $query = "SELECT * FROM driverdetails WHERE driver_id = '$driver_id'";
+    $route_id = $_POST['route_id'];
+    $query = "SELECT * FROM routedetails WHERE route_id = '$route_id'";
     $query_run = mysqli_query($con, $query);
     if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $row) {
             ?>
-                <h6>Driver ID: <?php echo $row['driver_id']; ?></h6>
-             <h6>Driver Name: <?php echo $row['driver_name']; ?></h6>
-             <h6>License Number: <?php echo $row['license_number']; ?></h6>
-                <h6>Phone Number: <?php echo $row['driver_phone']; ?></h6>
-                <h6>Date of Joining: <?php echo $row['date_of_joining']; ?></h6>
-                <h6>Driver Email: <?php echo $row['driver_email']; ?></h6>
-                <h6>Driver Availablity: <?php echo $row['driver_availablity']; ?></h6>
+                <h6>Route Id: <?php echo $row['route_id']; ?></h6>
+             <h6>Route Name: <?php echo $row['route_name']; ?></h6>
+             <h6>Source: <?php echo $row['source']; ?></h6>
+                <h6>destination: <?php echo $row['destination']; ?></h6>
 
             <?php
         }
@@ -53,9 +46,9 @@ if (isset($_POST['click_view_btn'])) {
 
 /*Edit*/
 if (isset($_POST['click_edit_btn'])) {
-    $driver_id = $_POST['driver_id'];
+    $route_id = $_POST['route_id'];
     $arrayresult=[];
-    $query = "SELECT * FROM driverdetails WHERE driver_id = '$driver_id'";
+    $query = "SELECT * FROM routedetails WHERE route_id = '$route_id'";
     $query_run = mysqli_query($con, $query);
     if (mysqli_num_rows($query_run) > 0) {
        while($row = mysqli_fetch_array($query_run)){
@@ -71,47 +64,36 @@ if (isset($_POST['click_edit_btn'])) {
 
 /*Update*/
 if (isset($_POST['update_data'])) {
-    $driver_id = $_POST['driver_id'];
-    $driver_name= $_POST['driver_name'];
-    $license_number = $_POST['license_number'];
-    $driver_phone = $_POST['driver_phone'];
-    $driver_email = $_POST['driver_email'];
-    $driver_availablity = $_POST['driver_availablity'];
+    $route_id = $_POST['route_id'];
+    $route_name = $_POST['route_name'];
+    $source = $_POST['source'];
+    $destination = $_POST['destination'];
 
-
-
-    $query = "UPDATE driverdetails SET 
-            driver_name='$driver_name', 
-            license_number='$license_number', 
-            driver_phone='$driver_phone', 
-            driver_email='$driver_email', 
-            driver_availablity='$driver_availablity' 
-          WHERE driver_id='$driver_id'";
-    
+    $query = "UPDATE routedetails SET route_name='$route_name', source='$source', destination='$destination' WHERE route_id='$route_id'";
     $query_run = mysqli_query($con, $query);
 
     if ($query_run) {
-        $_SESSION['success'] = "Driver Updated";
-        header('Location: Driver.php');
+        $_SESSION['success'] = "Route Updated";
+        header('Location: Route.php');
     } else {
-        $_SESSION['status'] = "Driver Not Updated";
-        header('Location: Driver.php');
+        $_SESSION['status'] = "Route Not Updated";
+        header('Location: Route.php');
     }
 }
 
 /*Delete*/
 if (isset($_POST['click_delete_btn'])) {
-  $driver_id = $_POST['driver_id'];
+    $route_id = $_POST['route_id'];
 
-    $query = "DELETE FROM driverdetails WHERE driver_id='$driver_id'";
+    $query = "DELETE FROM routedetails WHERE route_id='$route_id'";
     $query_run = mysqli_query($con, $query);
 
     if ($query_run) {
-        $_SESSION['success'] = "Driver Deleted";
-        header('Location: Driver.php');
+        $_SESSION['success'] = "Route Deleted";
+        header('Location: Route.php');
     } else {
-        $_SESSION['status'] = "driver Not Deleted";
-        header('Location: Driver.php');
+        $_SESSION['status'] = "Route Not Deleted";
+        header('Location: Route.php');
     }
 }
 
@@ -140,35 +122,23 @@ if (isset($_POST['click_delete_btn'])) {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Insert Driver</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Insert Route</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="" method="POST">
       <div class="modal-body ">
         <div class="form-group mb-3">
-            <label for="">Driver Name</label>
-            <input type="text" class="form-control" name="driver_name" placeholder="Enter Driver Name">
+            <label for="">Route Name</label>
+            <input type="text" class="form-control" name="route_name" placeholder="Enter Route Name">
         </div>
         <div class="form-group mb-3">
-        <label for="">License Number</label>
-            <input type="text" class="form-control" name="license_number" placeholder="Enter License Number">
+        <label for="">Source</label>
+            <input type="text" class="form-control" name="source" placeholder="Enter Starting Point">
         </div>
         <div class="form-group mb-3">
-        <label for=""> Phone Number</label>
-            <input type="text" class="form-control" name="driver_phone"  placeholder="Enter Phone Number">
+        <label for="">destination</label>
+            <input type="text" class="form-control" name="destination"  placeholder="Enter destination">
         </div>
-        <div class="form-group mb-3">
-        <label for=""> Email</label>
-            <input type="text" class="form-control" name="driver_email"  placeholder="Enter Email">
-        </div>
-        <div class="form-group mb-3">
-                <label for="driver_availability">Availability</label>
-                <select class="form-control" id="driver_availability" name="driver_availability">
-                    <option value="available">Available</option>
-                    <option value="not_available">Not Available</option>
-                </select>
-            </div>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -184,7 +154,7 @@ if (isset($_POST['click_delete_btn'])) {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">View Driver Data</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">View Roure Data</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -204,44 +174,27 @@ if (isset($_POST['click_delete_btn'])) {
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Driver Details</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Route</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form action="" method="POST">
       <div class="modal-body ">
         <div class="form-group mb-3">
                 
-        <input type="hidden" class="form-control" id='driver_id' name="driver_id">
+        <input type="hidden" class="form-control" id='route_id' name="route_id">
 </div>
         <div class="form-group mb-3">
-            <label for="">Driver Name</label>
-            <input type="text" class="form-control" id='driver_name' name="driver_name" placeholder="Enter Driver Name">
+            <label for="">Route Name</label>
+            <input type="text" class="form-control" id='route_name' name="route_name" placeholder="Enter Route Name">
         </div>
         <div class="form-group mb-3">
         <label for="">Bus Number</label>
-            <input type="text" class="form-control" id='license_number' name="license_number" placeholder="Enter License Number">
+            <input type="text" class="form-control" id='source' name="source" placeholder="Enter source">
         </div>
         <div class="form-group mb-3">
-        <label for=""> Bus capacity</label>
-            <input type="text" class="form-control" id='driver_phone' name="driver_phone"  placeholder="Enter Phone number">
+        <label for=""> Bus destination</label>
+            <input type="text" class="form-control" id='destination' name="destination"  placeholder="Enter destination">
         </div>
-      </div>
-      <div class="form-group mb-3">
-        <label for=""> </label>
-            <input type="text" class="form-control" id='driver_phone' name="driver_phone"  placeholder="Enter Phone number">
-        </div>
-        <div class="form-group mb-3">
-        <label for=""> Email</label>
-            <input type="text" class="form-control" name="driver_email"  placeholder="Enter Email">
-        </div>
-        <div class="form-group mb-3">
-                <label for="driver_availability">Availability</label>
-                <select class="form-control" id="driver_availability" name="driver_availability">
-                    <option value="available">Available</option>
-                    <option value="not_available">Not Available</option>
-                </select>
-            </div>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -255,15 +208,14 @@ if (isset($_POST['click_delete_btn'])) {
 
 
 
-      
-<div class="container">
+       <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="text-center">Drivers</h4>
+                        <h4 class="text-center">Route</h4>
                         <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Add Drivers
+                            Insert Route
                             </button>
                     </div>
                     <div class="card-body">
@@ -271,10 +223,9 @@ if (isset($_POST['click_delete_btn'])) {
                                     <thead>
                                         <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Driver Name</th>
-                                        <th scope="col">Phone Number</th>
-                                        <th scope="col">Email</th>
-                      
+                                        <th scope="col">Route Name</th>
+                                        <th scope="col">Source</th>
+                                        <th scope="col">destination</th>
                                         <th scope="col">View</th>
                                         <th scope="col">Edit</th>
                                         <th scope="col">Delete</th>
@@ -282,17 +233,17 @@ if (isset($_POST['click_delete_btn'])) {
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $query = "SELECT * FROM driverdetails";
+                                            $query = "SELECT * FROM routedetails";
                                             $query_run = mysqli_query($con, $query);
                                             $i = 1;
                                             if (mysqli_num_rows($query_run) > 0) {
                                                 foreach ($query_run as $row) {
                                                     ?>
                                                     <tr>
-                                                        <td class="driver_id"><?php echo $row['driver_id']; ?></td>
-                                                        <td> <?php echo $row['driver_name']; ?></td>
-                                                        <td ><?php echo $row['driver_phone']; ?></td>
-                                                        <td><?php echo $row['driver_email']; ?></td>
+                                                        <td class="route_id"><?php echo $row['route_id']; ?></td>
+                                                        <td ><?php echo $row['route_name']; ?></td>
+                                                        <td> <?php echo $row['source']; ?></td>
+                                                        <td><?php echo $row['destination']; ?></td>
                                                         <td>
                                                             <a href="#" class="btn btn-info btn-sm view_data">View</a>
                                                         </td>
@@ -333,14 +284,14 @@ if (isset($_POST['click_delete_btn'])) {
     $(document).ready(function(){
         $('.view_data').click(function(e){
             e.preventDefault();
-             var driver_id = $(this).closest('tr').find('.driver_id').text();
-             console.log(driver_id);
+             var route_id = $(this).closest('tr').find('.route_id').text();
+             console.log(route_id);
             $.ajax({
-                url: 'Driver.php',
+                url: 'Route.php',
                 method: 'post',
                 data: {
                     ' click_view_btn': true,
-                    'driver_id': driver_id,
+                    'route_id': route_id,
                 },
                 success: function(response){
                 //    console.log(response)
@@ -355,25 +306,22 @@ if (isset($_POST['click_delete_btn'])) {
     $(document).ready(function(){
         $('.edit_data').click(function(e){
             e.preventDefault();
-             var driver_id = $(this).closest('tr').find('.driver_id').text();
-             console.log(driver_id);
+             var route_id = $(this).closest('tr').find('.route_id').text();
+             console.log(route_id);
             $.ajax({
-                url: 'Driver.php',
+                url: 'Route.php',
                 method: 'post',
                 data: {
-                    'click_edit_btn': true,
-                    'driver_id': driver_id,
+                    ' click_edit_btn': true,
+                    'route_id': route_id,
                 },
                 success: function(response){
               
                     $.each(response, function(key, value){
-                          $('#driver_id').val(value['driver_id']);
-                       $('#driver_name').val(value['driver_name']);
-                       $('#license_number').val(value['license_number']);
-                       $('#driver_email').val(value['driver_email']);
-                        $('#driver_phone').val(value['driver_phone']);
-                        $('#driver_availablity').val(value['driver_availablity']);
-
+                          $('#route_id').val(value['route_id']);
+                       $('#route_name').val(value['route_name']);
+                       $('#source').val(value['source']);
+                       $('#destination').val(value['destination']);
                     });
                    
                    $('#editusermodal').modal('show');
@@ -386,16 +334,16 @@ if (isset($_POST['click_delete_btn'])) {
     $(document).ready(function(){
         $('.delete_btn').click(function(e){
             e.preventDefault();
-            var driver_id = $(this).closest('tr').find('.driver_id').text();
-            console.log(driver_id);
-            var deletebus = confirm('Are you sure you want to delete this Driver?');
+            var route_id = $(this).closest('tr').find('.route_id').text();
+            console.log(route_id);
+            var deletebus = confirm('Are you sure you want to delete this bus?');
             if(deletebus){
                 $.ajax({
-                    url: 'Driver.php',
+                    url: 'Route.php',
                     method: 'post',
                     data: {
                         'click_delete_btn': true,
-                        'driver_id': driver_id,
+                        'route_id': route_id,
                     },
                     success: function(response){
                         // alert(response);
@@ -403,10 +351,9 @@ if (isset($_POST['click_delete_btn'])) {
                     }
                 });
             }else{
-                alert('Driver Not Deleted');
+                alert('Bus Not Deleted');
             }
         });
     });
     </script>
-
 

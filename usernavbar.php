@@ -8,7 +8,7 @@
 
 <div class="container">
     
-<nav class="navbar navbar-expand-lg  ">
+<nav class="navbar navbar-expand-lg  fixed-top ">
   <div class="container-fluid">
   <a class="navbar-brand" href="index.php">
       <img src="Images/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top">
@@ -32,10 +32,10 @@
       </ul>
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link" href="SignUp.php">Sign Up</a>
+          <a class="nav-link" href="signup-user.php">Sign Up</a>
 </li>
         <li class="nav-item">   
-               <a class="nav-link" href="LogIn.php">Log In</a>
+               <a class="nav-link" href="login-user.php">Log In</a>
         </li>
 </ul>
     </div>
@@ -63,18 +63,14 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="BusRoute.php">Bus Route</a>
-                            </li>
+                            
                             <li class="nav-item">
                                 <a class="nav-link" href="BusSchedule.php">Bus schedule</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="Enquiry.php">Enquiry</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="Booking.php">Booking</a>
-                            </li>
+                            
                            
                             
                             </ul>

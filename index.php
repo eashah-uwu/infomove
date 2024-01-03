@@ -19,25 +19,27 @@
 </head>
 <body>
 <div class='test'>
-  <!--navbar background-color: #d2b48c;-->
+<div class="contains">
+  
+
+<!--navbar background-color: #d2b48c;-->
   <header>
   <?php require ('usernavbar.php') ?>
 </header>
 
 
 
-
- <main>
+  
 <div class='py-4' style="font: size 20px; text-align: center; color: black;">
            
            <h1  >InfoMove</h1>
            <p>The one stop for all your travelling needs</p>
            
            <?php if(isset($_SESSION['username'])==true) { ?>
-           <a class="btn btn-success" style="text-align: center" href="user/Booking.php">Book a Vehicle</a>
+           <a class="btn btn-success" style="text-align: center" href="BusSchedule.php">Book a Vehicle</a>
            
            <?php } else{  ?>
-           <a class="btn btn-success" style="text-align: center" href="Login.php">Login To Book A Vehicle</a> 
+           <a class="btn btn-success" style="text-align: center" href="login-user.php">Login To Book A Vehicle</a> 
            <?php } ?>
            
          </div>
@@ -49,11 +51,11 @@
   </div>
   <div class="container text-center border border-dark bg-light p-4" >
     <h6 style="font-size: 1.5rem;">Welcome to InfoMove - Your Ultimate Route Solution!</h6>
-
     <p style="font-size: 1rem;">At InfoMove, we understand that getting from point A to point B should be seamless and stress-free. That's why we are here to revolutionize your travel experience. As a leading route-providing company, InfoMove is committed to offering you efficient and reliable transportation solutions tailored to your needs.</p>
   </div>
 </section>
-</main>
+
+
 
   <!--bootstrap js link-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
@@ -66,6 +68,7 @@
     Contact us at: info@infomove.com
   </address>
 </footer>
-           </div>
+</div>
+</div>
 </body>
 </html>

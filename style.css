@@ -2,6 +2,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    list-style: none;
     } 
      
     
@@ -26,33 +28,34 @@
     
     .test{
         position: relative;
-        width: calc(100%-100px);
-        min-height: calc(100vh-280px);
-        min-height: 300px;
-        background: rgba(255,255,255,0.5);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.05) ;
+        width: 75%;
+        height: 86vh;
+        z-index: 10;
+        background: rgba(255,255,255,0.1);
+        border: 2px solid rgba(255,255,255,0.7);
+        box-shadow: 0 15px 35px rgba(10,10,10,0.25) ;
         border-radius: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 50px;
+        padding: 0,20px;
+        backdrop-filter: blur(25px);
 
 
     }
 
-    /* .navbar{
+    .navbar{
+       
         position:absolute;
         padding: 20px 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: rgba(255,255,255,0.5);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.25);
-        border-top : 1px solid rgba(255,255,255,0.25);
-        border-left: 1px solid rgba(255,255,255,0.5);
+        
         
    
-    } */
+    }
+
+    .nav-link{
+        color: white !important;
+    }
