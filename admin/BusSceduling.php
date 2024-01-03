@@ -7,9 +7,9 @@ if (isset($_POST['save_data'])) {
     
     $route_name = $_POST['route_name'];
     $departure_time = $_POST['departure_time'];
-    $destination = $_POST['destination'];
+    $arrival_time = $_POST['arrival_time'];
 
-    $query = "INSERT INTO busschedule (route_name, departure_time, destination) VALUES ('$route_name', '$departure_time', '$destination')";
+    $query = "INSERT INTO busschedule (date, departure_time, arrival_time) VALUES ('$date', '$departure_time', '$arrival_time')";
     $query_run = mysqli_query($con, $query);
 
     if ($query_run) {
@@ -26,7 +26,10 @@ if (isset($_POST['save_data'])) {
 /*View*/
 if (isset($_POST['click_view_btn'])) {
     $route_id = $_POST['route_id'];
-    $query = "SELECT * FROM busschedule WHERE route_id = '$route_id'";
+    $query = "SELECT busschedule.*, routedetails.route_name, routedetails.source, routedetails.destination, routedetails.bus_regno
+    FROM busschedule
+    INNER JOIN routedetails ON busschedule.route_id = routedetails.route_id
+    WHERE busschedule.route_id = '$route_id'";
     $query_run = mysqli_query($con, $query);
     if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $row) {
@@ -34,7 +37,7 @@ if (isset($_POST['click_view_btn'])) {
                 <h6>Route Id: <?php echo $row['route_id']; ?></h6>
              <h6>Route Name: <?php echo $row['route_name']; ?></h6>
              <h6>departure_time: <?php echo $row['departure_time']; ?></h6>
-                <h6>destination: <?php echo $row['destination']; ?></h6>
+                <h6>arrival_time: <?php echo $row['arrival_time']; ?></h6>
 
             <?php
         }
@@ -67,9 +70,9 @@ if (isset($_POST['update_data'])) {
     $route_id = $_POST['route_id'];
     $route_name = $_POST['route_name'];
     $departure_time = $_POST['departure_time'];
-    $destination = $_POST['destination'];
+    $arrival_time = $_POST['arrival_time'];
 
-    $query = "UPDATE busschedule SET route_name='$route_name', departure_time='$departure_time', destination='$destination' WHERE route_id='$route_id'";
+    $query = "UPDATE busschedule SET route_name='$route_name', departure_time='$departure_time', arrival_time='$arrival_time' WHERE route_id='$route_id'";
     $query_run = mysqli_query($con, $query);
 
     if ($query_run) {
@@ -133,11 +136,11 @@ if (isset($_POST['click_delete_btn'])) {
         </div>
         <div class="form-group mb-3">
         <label for="">departure_time</label>
-            <input type="text" class="form-control" name="departure_time" placeholder="Enter Starting Point">
+            <input type="text" class="form-control" name="departure_time" placeholder="Enter arrival">
         </div>
         <div class="form-group mb-3">
-        <label for="">destination</label>
-            <input type="text" class="form-control" name="destination"  placeholder="Enter destination">
+        <label for="">arrival_time</label>
+            <input type="text" class="form-control" name="arrival_time"  placeholder="Enter arrival_time">
         </div>
       </div>
       <div class="modal-footer">
@@ -188,12 +191,12 @@ if (isset($_POST['click_delete_btn'])) {
             <input type="text" class="form-control" id='route_name' name="route_name" placeholder="Enter Route Name">
         </div>
         <div class="form-group mb-3">
-        <label for="">Bus Number</label>
+        <label for="">Bus departure</label>
             <input type="text" class="form-control" id='departure_time' name="departure_time" placeholder="Enter departure_time">
         </div>
         <div class="form-group mb-3">
-        <label for=""> Bus destination</label>
-            <input type="text" class="form-control" id='destination' name="destination"  placeholder="Enter destination">
+        <label for=""> Bus arrival_time</label>
+            <input type="text" class="form-control" id='arrival_time' name="arrival_time"  placeholder="Enter arrival_time">
         </div>
       </div>
       <div class="modal-footer">
@@ -326,7 +329,7 @@ if (isset($_POST['click_delete_btn'])) {
                           $('#route_id').val(value['route_id']);
                        $('#route_name').val(value['route_name']);
                        $('#departure_time').val(value['departure_time']);
-                       $('#destination').val(value['destination']);
+                       $('#arrival_time').val(value['arrival_time']);
                     });
                    
                    $('#editusermodal').modal('show');
@@ -341,7 +344,7 @@ if (isset($_POST['click_delete_btn'])) {
             e.preventDefault();
             var route_id = $(this).closest('tr').find('.route_id').text();
             console.log(route_id);
-            var deletebus = confirm('Are you sure you want to delete this bus?');
+            var deletebus = confirm('Are you sure you want to delete?');
             if(deletebus){
                 $.ajax({
                     url: 'Route.php',

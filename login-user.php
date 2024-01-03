@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container bg">
         <div class="row">
             <div class="col-md-4 offset-md-4 form login-form">
                 <form action="login-user.php" method="POST" autocomplete="">
@@ -38,6 +38,7 @@
                         <input class="form-control button" type="submit" name="login" value="Login">
                     </div>
                     <div class="link login-link text-center">Not yet a member? <a href="signup-user.php">Signup now</a></div>
+                    <div class="link login-link text-center">Admin Login? <a href="AdminLogin.php">Signup now</a></div>
                 </form>
             </div>
         </div>

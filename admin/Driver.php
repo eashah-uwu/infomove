@@ -201,55 +201,48 @@ if (isset($_POST['click_delete_btn'])) {
 
 <!-- Edit Modal -->
 <div class="modal fade" id="editusermodal" tabindex="-1" aria-labelledby="editusermodal" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Driver Details</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form action="" method="POST">
-      <div class="modal-body ">
-        <div class="form-group mb-3">
-                
-        <input type="hidden" class="form-control" id='driver_id' name="driver_id">
-</div>
-        <div class="form-group mb-3">
-            <label for="">Driver Name</label>
-            <input type="text" class="form-control" id='driver_name' name="driver_name" placeholder="Enter Driver Name">
-        </div>
-        <div class="form-group mb-3">
-        <label for="">Bus Number</label>
-            <input type="text" class="form-control" id='license_number' name="license_number" placeholder="Enter License Number">
-        </div>
-        <div class="form-group mb-3">
-        <label for=""> Bus capacity</label>
-            <input type="text" class="form-control" id='driver_phone' name="driver_phone"  placeholder="Enter Phone number">
-        </div>
-      </div>
-      <div class="form-group mb-3">
-        <label for=""> </label>
-            <input type="text" class="form-control" id='driver_phone' name="driver_phone"  placeholder="Enter Phone number">
-        </div>
-        <div class="form-group mb-3">
-        <label for=""> Email</label>
-            <input type="text" class="form-control" name="driver_email"  placeholder="Enter Email">
-        </div>
-        <div class="form-group mb-3">
-                <label for="driver_availability">Availability</label>
-                <select class="form-control" id="driver_availability" name="driver_availability">
-                    <option value="available">Available</option>
-                    <option value="not_available">Not Available</option>
-                </select>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Driver Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" name="update_data" class="btn btn-primary">Update</button>
-      </div>
-        </form>
+            <form action="" method="POST">
+                <div class="modal-body">
+                    <div class="form-group mb-3">
+                        <input type="hidden" class="form-control" id='driver_id' name="driver_id">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="">Driver Name</label>
+                        <input type="text" class="form-control" id='driver_name' name="driver_name" placeholder="Enter Driver Name">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="">Bus Number</label>
+                        <input type="text" class="form-control" id='license_number' name="license_number" placeholder="Enter License Number">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="">Bus capacity</label>
+                        <input type="text" class="form-control" id='driver_phone' name="driver_phone"  placeholder="Enter Phone number">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="">Email</label>
+                        <input type="text" class="form-control" id='driver_email' name="driver_email"  placeholder="Enter Email">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="driver_availability">Availability</label>
+                        <select class="form-control" id="driver_availability" name="driver_availability">
+                            <option value="available">Available</option>
+                            <option value="not_available">Not Available</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" name="update_data" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
 </div>
 
 
